@@ -39,32 +39,32 @@ class SendEmails extends Command
     {
         $this->info('Let\'s begin!');
 
-        // $name = $this->anticipate('What is your name?', ['Taylor', 'Dayle']);
+        $name = $this->anticipate('What is your name?', ['Taylor', 'Dayle']);
     
-        // $times = $this->ask('How many times do you want to repeat?');
+        $times = $this->ask('How many times do you want to repeat?');
 
-        // if($times>10){
-        //     $this->error('Something went wrong!');
-        //     $times = $this->ask('How many times do you want to repeat?');
-        // }
+        if($times>10){
+            $this->error('Something went wrong!');
+            $times = $this->ask('How many times do you want to repeat?');
+        }
 
-        // $seconds = $this->ask('How long does it sleep?');
+        $seconds = $this->ask('How long does it sleep?');
 
-        // $user = User::where('id',$this->argument('user')[0])->first();
+        $user = User::where('id',$this->argument('user')[0])->first();
 
-        // $cc = $this->option('field');
+        $cc = $this->option('field');
 
-        // echo $user->$cc."\n";
+        echo $user->$cc."\n";
 
-        // if ($this->confirm('Do you want to create '.$times.' controller repeatedly?')) {
-        //     for ($i=0; $i < $times; $i++) { 
-        //         $this->call('make:controller',[
-        //             'name'=>'Test/Xx'.$i.'Controller',
-        //             '--resource'=>true
-        //         ]);
-        //         sleep($seconds);
-        //     }
-        // }
+        if ($this->confirm('Do you want to create '.$times.' controller repeatedly?')) {
+            for ($i=0; $i < $times; $i++) { 
+                $this->call('make:controller',[
+                    'name'=>'Test/Xx'.$i.'Controller',
+                    '--resource'=>true
+                ]);
+                sleep($seconds);
+            }
+        }
 
         $this->info('The following can arrange the data in a list！');
         $headers = ['Name', 'Email'];
