@@ -10,34 +10,27 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::group(['domain' => '{language}.laravel.dev','middleware' => ['changeLanguage']], function () {
+	Route::get('/', function () {
+		// App::setLocale($language);
+		return view('welcome');
+	});
 
-// Route::group(['domain' => '{language}.laravel-local.com'], function () {
 
-// });
-Route::get('/', function () {
-	
-    return view('welcome');
+	Route::get('users/{user}', function (App\User $user) {
+		dump(Route::current());
+	    dd($user);
+	});
+
+	Route::get('/bar', function () {
+	    $exitCode = Artisan::call('email:send', [
+	        'user' => 1,
+	        '--field' => 'name'
+	    ]);
+	    return $exitCode;
+	});
 });
-
 Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
 
-Route::get('users/{user}', function (App\User $user) {
-	dump(Route::current());
-    dd($user);
-});
 
-Route::get('/foo', function () {
-  
-});
-
-Route::get('/bar', function () {
-    $exitCode = Artisan::call('email:send', [
-        'user' => 1,
-        '--field' => 'name'
-    ]);
-    return $exitCode;
-});
