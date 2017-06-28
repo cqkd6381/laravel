@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,15 +31,13 @@ Route::get('users/{user}', function (App\User $user) {
 });
 
 Route::get('/foo', function () {
-    $exitCode = Artisan::call('make:controller', [
-        'user' => 'DdController'
-    ]);
-    return $exitCode;
+  
 });
 
 Route::get('/bar', function () {
     $exitCode = Artisan::call('email:send', [
-        'user' => 1
+        'user' => 1,
+        '--field' => 'name'
     ]);
     return $exitCode;
 });

@@ -11,7 +11,7 @@ class SendEmails extends Command
      *
      * @var string
      */
-    protected $signature = 'email:send {user}';
+    protected $signature = 'email:send {user=1:The ID of the user} {--f|field=name:The field of data sheet}';
 
     /**
      * The console command description.
@@ -37,7 +37,41 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $user = User::find($this->argument('user'));
-        echo $user->name;
+        $this->info('Let\'s begin!');
+
+        // $name = $this->anticipate('What is your name?', ['Taylor', 'Dayle']);
+    
+        // $times = $this->ask('How many times do you want to repeat?');
+
+        // if($times>10){
+        //     $this->error('Something went wrong!');
+        //     $times = $this->ask('How many times do you want to repeat?');
+        // }
+
+        // $seconds = $this->ask('How long does it sleep?');
+
+        // $user = User::where('id',$this->argument('user')[0])->first();
+
+        // $cc = $this->option('field');
+
+        // echo $user->$cc."\n";
+
+        // if ($this->confirm('Do you want to create '.$times.' controller repeatedly?')) {
+        //     for ($i=0; $i < $times; $i++) { 
+        //         $this->call('make:controller',[
+        //             'name'=>'Test/Xx'.$i.'Controller',
+        //             '--resource'=>true
+        //         ]);
+        //         sleep($seconds);
+        //     }
+        // }
+
+        $this->info('The following can arrange the data in a list！');
+        $headers = ['Name', 'Email'];
+
+        $users = User::all(['name', 'email'])->toArray();
+
+        $this->table($headers, $users);
+
     }
 }
