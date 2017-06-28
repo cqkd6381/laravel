@@ -16,21 +16,20 @@ Route::group(['domain' => '{language}.laravel.dev','middleware' => ['changeLangu
 		return view('welcome');
 	});
 
-
-	Route::get('users/{user}', function (App\User $user) {
-		dump(Route::current());
-	    dd($user);
-	});
-
 	Route::get('/bar', function () {
-	    $exitCode = Artisan::call('email:send', [
-	        'user' => 1,
-	        '--field' => 'name'
+	    $exitCode = Artisan::call('email:sende', [
+	        'user' => 1
 	    ]);
-	    return $exitCode;
-	});
+	    // return $exitCode;
+	})->middleware('auth');
+
+
 });
 Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
+Route::get('user/{user}', function (App\User $user) {
+	dump(Route::current());
+    dd($user);
+});
 
 
