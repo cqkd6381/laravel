@@ -15,4 +15,6 @@ return [
     'register' => '注册',
     'forgot_pwd' => '忘记密码？',
     'home' => '主页',
+    'reset_pwd' => '重置密码',
+    'send_reset_link' => '发送重置密码链接',
 ];

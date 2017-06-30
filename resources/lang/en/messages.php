@@ -13,4 +13,6 @@ return [
     'register' => 'Register',
     'forgot_pwd' => 'Forgot Your Password?',
     'home' => 'Home',
+    'reset_pwd' => 'Reset Password',
+    'send_reset_link' => 'Send Password Reset Link',
 ];
