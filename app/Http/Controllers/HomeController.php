@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (\Auth::viaRemember()) {
-            echo 'remember';
-        }else{
-            echo 'ddd';
-        }
+        // if (\Auth::viaRemember()) {
+        //     echo 'remember';
+        // }else{
+        //     echo 'ddd';
+        // }
         return view('home');
     }
 }

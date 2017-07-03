@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Liuwei Add
+         */
+        Laravel\Passport\PassportServiceProvider::class,
+
     ],
 
     /*
