@@ -36,3 +36,6 @@ Route::get('profile', function () {
 })->middleware('auth.basic');
 
 //remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d
+Route::get('video','HomeController@getVideo');
+Route::post('video','HomeController@postVideo');
+Route::post('vvv','HomeController@vvv')->name('vvv');
